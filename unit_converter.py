@@ -1,6 +1,6 @@
 import streamlit as st 
 
-# Custom Styling for Background, Borders, Buttons, and Hover Effects
+
 st.markdown("""
     <style>
         /* Background Styling */
@@ -69,16 +69,16 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Base conversion factors
+
 CONVERSION_FACTORS = {
-    # Length (meters) 
+ 
     "meters": 1, "kilometers": 1000, "centimeters": 0.01, "millimeters": 0.001,
     "miles": 1609.34, "yards": 0.9144, "feet": 0.3048, "inches": 0.0254,
     
-    # Weight (grams)
+
     "grams": 1, "kilograms": 1000, "milligrams": 0.001, "pounds": 453.592, "ounces": 28.3495,
     
-    # Volume (liters)
+
     "liters": 1, "milliliters": 0.001, "gallons": 3.78541, "quarts": 0.946353,
     "pints": 0.473176, "cups": 0.24,
 }
@@ -87,21 +87,19 @@ def convert_unit(value, unit_from, unit_to):
     if unit_from not in CONVERSION_FACTORS or unit_to not in CONVERSION_FACTORS:
         return "Conversion not supported"
     
-    # Convert to base unit, then to target
     base_value = value * CONVERSION_FACTORS[unit_from]
     converted_value = base_value / CONVERSION_FACTORS[unit_to]
 
     return round(converted_value, 5) 
 
-# App Title
+
 st.markdown('<p class="big-font">🔄 Advanced Unit Converter By Muneeb</p>', unsafe_allow_html=True)
 st.markdown('<p class="small-text">Convert Length, Weight, and Volume Units Easily!</p>', unsafe_allow_html=True)
 
-# Category Selection
 st.markdown('<p class="category-box">Select a Conversion Category:</p>', unsafe_allow_html=True)
 category = st.selectbox("", ["Length", "Weight", "Volume"])
 
-# Define units based on category
+
 unit_options = {
     "Length": ["meters", "kilometers", "centimeters", "millimeters", "miles", "yards", "feet", "inches"],
     "Weight": ["grams", "kilograms", "milligrams", "pounds", "ounces"],
@@ -110,7 +108,7 @@ unit_options = {
 
 units = unit_options[category]
 
-# Layout: Input and Conversion Options
+
 col1, col2 = st.columns([2, 2])
 
 with col1:
@@ -120,7 +118,7 @@ with col2:
     unit_from = st.selectbox("Convert from:", units)
     unit_to = st.selectbox("Convert to:", units)
 
-# Conversion Button with Styling
+
 if st.button("🔁 Convert", key="convert", help="Click to convert the units"):
     result = convert_unit(value, unit_from, unit_to)
     st.markdown(f'<p class="result-box">Converted Value: {result} {unit_to}</p>', unsafe_allow_html=True)
