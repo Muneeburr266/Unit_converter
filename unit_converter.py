@@ -71,7 +71,7 @@ st.markdown("""
 
 # Base conversion factors
 CONVERSION_FACTORS = {
-    # Length (meters)
+    # Length (meters) 
     "meters": 1, "kilometers": 1000, "centimeters": 0.01, "millimeters": 0.001,
     "miles": 1609.34, "yards": 0.9144, "feet": 0.3048, "inches": 0.0254,
     
@@ -94,7 +94,7 @@ def convert_unit(value, unit_from, unit_to):
     return round(converted_value, 5) 
 
 # App Title
-st.markdown('<p class="big-font">🔄 Advanced Unit Converter</p>', unsafe_allow_html=True)
+st.markdown('<p class="big-font">🔄 Advanced Unit Converter By Muneeb</p>', unsafe_allow_html=True)
 st.markdown('<p class="small-text">Convert Length, Weight, and Volume Units Easily!</p>', unsafe_allow_html=True)
 
 # Category Selection
